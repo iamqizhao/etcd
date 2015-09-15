@@ -44,7 +44,7 @@ func compactionCommandFunc(c *cli.Context) {
 		panic("bad arg")
 	}
 
-	conn, err := grpc.Dial(c.GlobalString("endpoint"))
+	conn, err := grpc.Dial(c.GlobalString("endpoint"), grpc.WithInsecure())
 	if err != nil {
 		panic(err)
 	}

@@ -51,7 +51,7 @@ func txnCommandFunc(c *cli.Context) {
 		next = next(txn, reader)
 	}
 
-	conn, err := grpc.Dial(c.GlobalString("endpoint"))
+	conn, err := grpc.Dial(c.GlobalString("endpoint"), grpc.WithInsecure())
 	if err != nil {
 		panic(err)
 	}

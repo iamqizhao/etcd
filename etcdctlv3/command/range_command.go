@@ -44,7 +44,7 @@ func rangeCommandFunc(c *cli.Context) {
 	if len(c.Args()) > 1 {
 		rangeEnd = []byte(c.Args()[1])
 	}
-	conn, err := grpc.Dial(c.GlobalString("endpoint"))
+	conn, err := grpc.Dial(c.GlobalString("endpoint"), grpc.WithInsecure())
 	if err != nil {
 		panic(err)
 	}

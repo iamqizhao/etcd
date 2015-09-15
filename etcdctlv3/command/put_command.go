@@ -41,7 +41,7 @@ func putCommandFunc(c *cli.Context) {
 
 	key := []byte(c.Args()[0])
 	value := []byte(c.Args()[1])
-	conn, err := grpc.Dial(c.GlobalString("endpoint"))
+	conn, err := grpc.Dial(c.GlobalString("endpoint"), grpc.WithInsecure())
 	if err != nil {
 		panic(err)
 	}

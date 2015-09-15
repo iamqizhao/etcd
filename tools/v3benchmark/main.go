@@ -67,7 +67,7 @@ func main() {
 		go func() {
 			defer wg.Done()
 
-			conn, err := grpc.Dial(url)
+			conn, err := grpc.Dial(url, grpc.WithInsecure())
 			if err != nil {
 				fmt.Errorf("dial error: %v", err)
 				os.Exit(1)
